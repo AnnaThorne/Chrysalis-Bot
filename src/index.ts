@@ -1,4 +1,4 @@
-import {Client} from "discord.js";
+import {ActivityType, Client} from "discord.js";
 import {IntentOptions} from "./config/IntentOptions";
 import {validateEnv} from "./utils/validateEnv";
 import {onInteraction} from "./events/onInteraction";
@@ -15,5 +15,8 @@ import {databaseConnect} from "./database/databaseConnect";
     BOT.on("interactionCreate",
         async (interaction) => await onInteraction(interaction));
 
-    await BOT.login(process.env.BOT_TOKEN);
+    await BOT.login(process.env.BOT_TOKEN).then(() => {
+        BOT.user?.setPresence({activities: [{name: "Banned from Equestria", type: ActivityType.Playing}], status: "online"});
+        console.log("logged in!");
+    });
 })();
