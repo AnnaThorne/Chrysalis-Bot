@@ -1,9 +1,9 @@
 name: Building docker image to test if stuff works
 on:
   push:
-    branches: [ "dev", "dev/*", "init/*", "hotfix/*", "feat/*", "fix/*" ]
+    branches: [ "dev", "hotfix/**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "dev", "dev/**", "feat/**", "fix/**",  "init/**"]
 
 jobs:
   build:
