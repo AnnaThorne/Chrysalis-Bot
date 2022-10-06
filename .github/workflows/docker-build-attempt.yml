@@ -1,0 +1,16 @@
+name: Building docker image to test if stuff works
+on:
+  push:
+    branches: [ "dev", "hotfix/**" ]
+  pull_request:
+    branches: [ "main", "dev", "dev/**", "feat/**", "fix/**",  "init/**"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile
