@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "yarn -r dotenv/config ./prod/index.js",
+    "start": "node -r dotenv/config ./prod/index.js",
     "dev": "concurrently \"tsc -w --resolveJsonModule\" \"nodemon prod/index.js\""
   },
   "repository": {
