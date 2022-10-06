@@ -3,8 +3,7 @@ on:
   push:
     branches: [ "dev", "hotfix/**" ]
   pull_request:
-    branches: [ "main", "dev", "dev/**", "feat/**", "fix/**",  "init/**"]
-
+    branches: [ "main", "dev"]
 jobs:
   build:
     runs-on: ubuntu-latest
