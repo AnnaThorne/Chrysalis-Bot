@@ -5,10 +5,15 @@
 # Usage
 ## Docker
 You can download a ready to deploy docker image over at [docker hub](https://hub.docker.com/repository/docker/annathorne/chrysalisbot).
-Or build your own using the provided Dockerfile in this repository. It's simple! Just clone the repository and then run the following commands in the same folder:
+It's simple! Just make sure you have docker installed on your machine and run the following command:
 ```
-$  docker build . -t chrysalisbot:latest
 $  docker run --env-file ./.env chrysalisbot
+```
+## Manual
+If you don't want to use docker, just clone the repository and compile from source. Then run the bot on your Node.js instance:
+```
+$  npm run build
+$  npm run start
 ```
 # Commands
 ![image](https://user-images.githubusercontent.com/111367090/194105256-fd82b33e-93e3-45c3-9626-fc8cde8cfeb8.png)
