@@ -1,7 +1,7 @@
 name: Building docker image to test if stuff works
 on:
   push:
-    branches: [ "dev", "dev/*", "init/*" ]
+    branches: [ "dev", "dev/*", "init/*", "hotfix/*", "feat/*", "fix/*" ]
   pull_request:
     branches: [ "main" ]
 
