@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:latest
 COPY . /Chrysalis
 WORKDIR /Chrysalis
 RUN yarn install
