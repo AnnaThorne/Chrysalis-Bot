@@ -1,11 +1,9 @@
-name: Docker Image CI
-
+name: Building docker image to test if stuff works
 on:
   push:
     branches: [ "dev", "dev/*", "init/*" ]
   pull_request:
     branches: [ "main" ]
-
 
 jobs:
   build:
@@ -15,4 +13,4 @@ jobs:
       with:
         submodules: recursive
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/chrysalisbot:latest
+      run: docker build . --file Dockerfile
