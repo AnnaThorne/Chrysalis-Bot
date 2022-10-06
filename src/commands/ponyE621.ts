@@ -1,14 +1,12 @@
 import {ICommand} from "../interfaces/Command";
 import {SlashCommandBuilder} from "@discordjs/builders";
-import {getPonyData} from "../modules/getPonyData";
-import {updatePonyData} from "../modules/updatePonyData";
-import {EmbedBuilder} from "discord.js";
-import {getRandomPonyData} from "../modules/getRandomPonyData";
+import {EmbedBuilder, TextChannel} from "discord.js";
+import {getRandomPonyDataFrom621} from "../modules/getRandomPonyDataFrom621";
 
 
-export const pony: ICommand = {
+export const pony621: ICommand = {
     data: new SlashCommandBuilder()
-        .setName("pony")
+        .setName("pony621")
         .setDescription("Posts ponies")
         .addStringOption((option) =>
             option
@@ -21,13 +19,21 @@ export const pony: ICommand = {
         if(interaction.isChatInputCommand()) {
             await interaction.deferReply();
             const text = interaction.options.getString("name");
+            const id = interaction.channel?.id!;
+            const c = await interaction.guild?.channels.fetch(id) as TextChannel;
+            if(!c.nsfw){
+                const ponyEmbed = new EmbedBuilder().setColor(0x09999).setTitle("Oopsie woopsie~")
+                    .setDescription("This command can only be used in NSFW channels");
+                await interaction.editReply({embeds: [ponyEmbed]});
+                return;
+            }
             let targetPony;
             if(text) {
-                targetPony = await getPonyData(text as string);
+                text.replace(" ", "+");
+                targetPony = await getRandomPonyDataFrom621(`${text}+mlp`);
             } else {
-                targetPony = await getRandomPonyData();
+                targetPony = await getRandomPonyDataFrom621("mlp");
             }
-
             const ponyEmbed = new EmbedBuilder().setColor(0x09999).setTitle(targetPony?.ponyName ?? "Pony").setImage(targetPony?.imgUrl!);
 
             await interaction.editReply({embeds: [ponyEmbed]});
