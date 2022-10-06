@@ -24,7 +24,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node -r dotenv/config ./prod/index.js"
+    "start": "yarn -r dotenv/config ./prod/index.js",
+    "dev": "concurrently \"tsc -w --resolveJsonModule\" \"nodemon prod/index.js\""
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,8 @@
   "homepage": "https://github.com/AnnaThorne/Chrysalis-Bot#readme",
   "devDependencies": {
     "@types/node": "^18.8.2",
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20",
     "typescript": "^4.8.4"
   }
 }
