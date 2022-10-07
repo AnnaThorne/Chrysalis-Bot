@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:slim
 COPY . /Chrysalis
 WORKDIR /Chrysalis
 RUN npm install
