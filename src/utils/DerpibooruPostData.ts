@@ -1,1 +1,0 @@
-import {PonyData} from "./ponyData";
