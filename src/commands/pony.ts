@@ -1,9 +1,9 @@
 import {ICommand} from "../interfaces/Command";
 import {SlashCommandBuilder} from "@discordjs/builders";
-import {getPonyData} from "../modules/getPonyData";
-import {updatePonyData} from "../modules/updatePonyData";
-import {EmbedBuilder} from "discord.js";
+import {EmbedBuilder, GuildMember, TextChannel} from "discord.js";
 import {getRandomPonyData} from "../modules/getRandomPonyData";
+import {getRandomPonyDataFrom926} from "../modules/getRandomPonyDataFrom926";
+import {ponyRandom} from "../utils/ponyDataPick";
 
 
 export const pony: ICommand = {
@@ -18,17 +18,33 @@ export const pony: ICommand = {
                 .setAutocomplete(true)
         ),
     run: async (interaction) => {
-        if(interaction.isChatInputCommand()) {
+        if (interaction.isChatInputCommand()) {
             await interaction.deferReply();
+            const user = interaction.member?.user.id;
+            /*const guildMember = await interaction.guild?.members.fetch(''+user) as GuildMember;
+            await guildMember.timeout(300);*/
             const text = interaction.options.getString("name");
             let targetPony;
-            if(text) {
-                targetPony = await getPonyData(text as string);
+            if (text) {
+                text.replace(" ", "+");
+                targetPony = await getRandomPonyDataFrom926(`${text}+mlp`);
             } else {
-                targetPony = await getRandomPonyData();
+               /* switch (ponyRandom(0, 1)) {
+                    case 0:
+                        targetPony = await getRandomPonyData();
+                        break;
+                    case 1:
+                        targetPony = await getRandomPonyDataFrom926("mlp");
+                        break;
+                    default:
+                        targetPony = await getRandomPonyDataFrom926("mlp");
+                        break;
+                }*/
+                targetPony = await getRandomPonyDataFrom926("mlp");
+
             }
 
-            const ponyEmbed = new EmbedBuilder().setColor(0x09999).setTitle(targetPony?.ponyName!).setImage(targetPony?.imgUrl!);
+            const ponyEmbed = new EmbedBuilder().setColor(0x09999).setTitle(targetPony?.ponyName ?? "Pony").setImage(targetPony?.imgUrl!);
 
             await interaction.editReply({embeds: [ponyEmbed]});
 
