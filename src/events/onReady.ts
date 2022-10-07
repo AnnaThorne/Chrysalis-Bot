@@ -1,5 +1,5 @@
 import type {Client} from 'discord.js';
-import {commandList} from '../commands/_commandList';
+import {commandList} from '../commands/_CommandList';
 import {REST} from '@discordjs/rest';
 import {Routes} from 'discord-api-types/v10';
 
