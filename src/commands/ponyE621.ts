@@ -40,7 +40,7 @@ export const pony621: ICommand = {
       const ponyEmbed = new EmbedBuilder()
         .setColor(0x09999)
         .setTitle(targetPony?.ponyName ?? "Pony")
-        .setImage(targetPony?.imgUrl! ?? fallBackUrl);
+        .setImage(targetPony?.imgUrl ?? fallBackUrl);
 
       await interaction.editReply({ embeds: [ponyEmbed] });
 
