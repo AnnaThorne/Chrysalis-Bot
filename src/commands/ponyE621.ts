@@ -35,10 +35,12 @@ export const pony621: ICommand = {
       } else {
         targetPony = await getRandomPonyDataFrom621("mlp");
       }
+      const fallBackUrl =
+        "https://cdn.discordapp.com/attachments/241272669868130304/1027240631535407164/unknown.png";
       const ponyEmbed = new EmbedBuilder()
         .setColor(0x09999)
         .setTitle(targetPony?.ponyName ?? "Pony")
-        .setImage(targetPony?.imgUrl!);
+        .setImage(targetPony?.imgUrl! ?? fallBackUrl);
 
       await interaction.editReply({ embeds: [ponyEmbed] });
 
