@@ -1,11 +1,12 @@
-import { Document, model, Schema } from "mongoose";
-export interface IUserModel extends Document {
-    discordId: string;
-    points: number;
-}
-export const User = new Schema({
-    discordId: String,
-    points: Number,
+import type {Document} from 'mongoose';
+import {model, Schema} from 'mongoose';
+export type UserModel = {
+	discordId: string;
+	points: number;
+} & Document;
+export const user = new Schema({
+	discordId: String,
+	points: Number,
 });
 
-export default model<IUserModel>("User", User);
+export default model<UserModel>('User', user);
