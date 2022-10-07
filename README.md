@@ -1,6 +1,6 @@
 # Chrysalis-Bot
 
-![badge](https://img.shields.io/badge/UwU-Made%20with%20love%20%3C3-ff69b4)
+![badge](https://img.shields.io/badge/UwU-Made%20with%20love%20%3C3-ff69b4) [![CodeFactor](https://www.codefactor.io/repository/github/annathorne/chrysalis-bot/badge/main)](https://www.codefactor.io/repository/github/annathorne/chrysalis-bot/overview/main)
 
 Discord bot written in TypeScript.
 
