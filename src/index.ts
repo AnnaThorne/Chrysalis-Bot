@@ -13,7 +13,7 @@ import {databaseConnect} from './database/databaseConnect';
 	bot.on('ready', async () => onReady(bot));
 
 	bot.on('interactionCreate',
-		async interaction => onInteraction(interaction));
+		async (interaction: any) => onInteraction(interaction));
 
 	await bot.login(process.env.BOT_TOKEN).then(() => {
 		bot.user?.setPresence({activities: [{name: 'Banned from Equestria', type: ActivityType.Playing}], status: 'online'});
