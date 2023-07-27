@@ -19,7 +19,7 @@ export const help: Command = {
                             + 'or you can get a random pony by not specifying a name.',
 				},
 				{name: 'Help', value: 'Shows this message.'})
-				.setFooter({text: `Version ${process.env.npm_package_version ?? 'unknown'} Developed by Deppy#3350`});
+				.setFooter({text: `Version ${process.env.npm_package_version ?? 'unknown'} Developed by annie_xo`});
 			await interaction.editReply({embeds: [helpEmbed]});
 		}
 	},
