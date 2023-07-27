@@ -26,7 +26,6 @@ npm run start
 
 ## Commands
 
-![image](https://github.com/AnnaThorne/Chrysalis-Bot/assets/111367090/3c198d6a-c5bb-4b4c-9e13-195f551c4339)
-
+![image](https://github.com/AnnaThorne/Chrysalis-Bot/assets/111367090/7c54975d-7c9e-4eff-8690-bd32c13e079b)
 
 Using /pony will return a random pony image.
