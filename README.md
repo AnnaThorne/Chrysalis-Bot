@@ -20,8 +20,8 @@ docker run --env-file ./.env chrysalisbot
 If you don't want to use docker, just clone the repository and compile from source. Then run the bot on your Node.js instance:
 
 ```npm
-npm run build
-npm run start
+pnpm run build
+pnpm run start
 ```
 
 ## Commands
